@@ -1,4 +1,4 @@
 # weiboCell
 类似于微博动态的cell
 
-![ddd](images/qq.png)
+![](https://github.com/MisterZhouZhou/weiboCell/blob/master/imgages/qq.png)
