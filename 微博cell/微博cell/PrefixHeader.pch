@@ -1,0 +1,54 @@
+//
+//  PrefixHeader.pch
+//  微博cell
+//
+//  Created by rayootech on 16/5/24.
+//  Copyright © 2016年 rayootech. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+static NSInteger margin_left_right = 20;
+#endif
+
+#define kScreen_Bounds [UIScreen mainScreen].bounds
+#define kScreen_Height [UIScreen mainScreen].bounds.size.height
+#define kScreen_Width [UIScreen mainScreen].bounds.size.width
+
+//头像宽高
+#define ZWIconWH 35
+#define ZWStatusCellMargin 10
+#define ZWNameFont [UIFont systemFontOfSize:14.0]
+#define ZWTitleTwoFont [UIFont systemFontOfSize:10.0]
+#define ZWTimeFont [UIFont systemFontOfSize:12.0]
+#define ZWSourceFont ZWTimeFont
+#define ZWTextFont [UIFont systemFontOfSize:15.0]
+
+#define kKeyWindow [UIApplication sharedApplication].keyWindow
+
+//色值
+#define RGBA(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
+
+#define RGB(r,g,b) RGBA(r,g,b,1.0f)
+
+///=============================================
+/// @name Weak Object
+///=============================================
+#pragma mark - Weak Object
+#define ESWeak(var, weakVar) __weak __typeof(&*var) weakVar = var
+#define ESStrong_DoNotCheckNil(weakVar, _var) __typeof(&*weakVar) _var = weakVar
+#define ESStrong(weakVar, _var) ESStrong_DoNotCheckNil(weakVar, _var); if (!_var) return;
+
+#define ESWeak_(var) ESWeak(var, weak_##var);
+#define ESStrong_(var) ESStrong(weak_##var, _##var);
+
+/** defines a weak `self` named `__weakSelf` */
+#define ESWeakSelf      ESWeak(self, __weakSelf);
+/** defines a strong `self` named `_self` from `__weakSelf` */
+#define ESStrongSelf    ESStrong(__weakSelf, _self);
+
+
+#endif /* PrefixHeader_pch */
